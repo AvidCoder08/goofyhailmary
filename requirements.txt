@@ -1,0 +1,9 @@
+streamlit[pdf]
+toml
+st-theme
+-e ./pesuacademy-dev
+lxml
+python-dotenv
+requests
+cryptography
+extra-streamlit-components

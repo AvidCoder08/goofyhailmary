@@ -1,0 +1,94 @@
+[project]
+name = "pesuacademy"
+version = "1.0.0"
+description = "Super-fast and lightweight Python wrapper for PESU Academy."
+readme = "README.md"
+readme-content-type = "text/markdown"
+requires-python = ">=3.11"
+license = { file = "LICENSE" }
+authors = [
+    { name = "Aditeya Baral", email = "aditeya.baral@gmail.com" },
+    { name = "Samarth Mohan", email = "samarth.lina@gmail.com" }
+]
+urls = { Homepage = "https://github.com/pesu-dev/pesuacademy", Repository = "https://github.com/pesu-dev/pesuacademy", Documentation = "https://github.com/pesu-dev/pesuacademy#readme", BugTracker = "https://github.com/pesu-dev/pesuacademy/issues" }
+keywords = ["pesu", "pesu academy", "python client", "wrapper"]
+
+dependencies = [
+    "beautifulsoup4>=4.13.4",
+    "httpx>=0.28.1",
+    "pydantic>=2.11.7",
+    "python-dotenv>=1.1.1",
+    "selectolax>=0.3.32",
+]
+
+classifiers = [
+    "Development Status :: 5 - Production/Stable",
+    "Intended Audience :: Developers",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent"
+]
+
+[project.optional-dependencies]
+tests = [
+    "pre-commit>=4.2.0",
+    "pytest>=8.4.1",
+    "pytest-asyncio>=1.1.0",
+    "pytest-cov>=6.2.1",
+    "ruff>=0.12.7",
+]
+docs = [
+    "sphinx>=6.0",
+    "sphinx-autodoc-typehints>=3.2.0",
+    "sphinx-rtd-theme>=1.2.1",
+    "sphinxcontrib-napoleon>=0.7",
+]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["pesuacademy"]
+
+[tool.pytest.ini_options]
+pythonpath = ["."]
+markers = [
+    "secret_required: marks tests that require secrets or environment variables (e.g. TEST_PRN, TEST_PASSWORD)"
+]
+
+[tool.ruff.lint]
+select = [
+    "E", # Pycodestyle errors
+    "F", # Pyflakes errors
+    "W", # Pycodestyle warnings
+    "UP", # Pyupgrade rules
+    "I", # Import related rules
+    "C90", # Complexity rules
+    "D", # Documentation rules
+    "ANN", # Annotations rules
+    "TYP", # Type checking rules
+    "N", # Naming rules
+    "Q000", # Quotation style rules
+    "RET", # Return type rules
+]
+
+[tool.ruff.lint.pydocstyle]
+convention = "google"
+
+[tool.ruff]
+line-length = 120
+target-version = "py312"
+exclude = [
+    "tests/",
+    "docs/",
+    "scripts/",
+]
+
+[tool.ruff.format]
+quote-style = "double"
+docstring-code-format = true
