@@ -10,6 +10,6 @@ SUPERADMIN_IDS = {
 CR_IDS_BY_CLASS = {
     # "Sem2-A": {"SRN123", "cr@pesu.pes.edu"},
     "Sem2-SectionC9": {"PES1UG25CS527"},
-    "Sem6-SectionE": {"PES1UG23EC277"}
+    "CIE-SectionE": {"PES1UG23EC277"}
     
 }
