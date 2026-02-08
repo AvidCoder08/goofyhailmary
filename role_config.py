@@ -1,7 +1,7 @@
 # Update these IDs to control access
 # Use SRNs or PESU email IDs (case-insensitive)
 SUPERADMIN_IDS = {
-    "PES1UG25CS527",
+    "PES1UG25CS527","PES1UG23EC277"
 }
 
 # Map class_id -> set of CR SRNs/emails
@@ -10,5 +10,6 @@ SUPERADMIN_IDS = {
 CR_IDS_BY_CLASS = {
     # "Sem2-A": {"SRN123", "cr@pesu.pes.edu"},
     "Sem2-SectionC9": {"PES1UG25CS527"},
+    "Sem6-SectionE": {"PES1UG23EC277"}
     
 }
