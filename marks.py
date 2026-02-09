@@ -13,6 +13,21 @@ from gpa_calculator import (
 
 restore_session_from_cookie()
 
+# Helper function to safely convert marks to float
+def safe_float_convert(value):
+    """Safely convert a value to float, returning 0 if conversion fails"""
+    if value is None:
+        return 0
+    if isinstance(value, (int, float)):
+        return float(value)
+    if isinstance(value, str):
+        try:
+            return float(value)
+        except ValueError:
+            # If it's a letter grade or non-numeric string, return 0
+            return 0
+    return 0
+
 # Check if user is logged in
 if not st.session_state.get('logged_in', False):
     st.warning("⚠️ Yo, gotta log in first no cap 🔐")
@@ -143,8 +158,8 @@ with results_tab:
             assessment_details = {}
             
             for assessment in course.assessments:
-                marks = float(assessment.marks) if isinstance(assessment.marks, (int, float, str)) else 0
-                total = float(assessment.total) if isinstance(assessment.total, (int, float, str)) else 0
+                marks = safe_float_convert(assessment.marks)
+                total = safe_float_convert(assessment.total)
                 total_marks += marks
                 total_possible += total
                 
@@ -236,8 +251,8 @@ with results_tab:
                     
                     assessment_data = []
                     for assessment in course['assessments']:
-                        marks = float(assessment.marks) if isinstance(assessment.marks, (int, float, str)) else 0
-                        total = float(assessment.total) if isinstance(assessment.total, (int, float, str)) else 0
+                        marks = safe_float_convert(assessment.marks)
+                        total = safe_float_convert(assessment.total)
                         percentage = f"{(marks/total*100):.1f}%" if total > 0 else "N/A"
                         assessment_data.append({
                             "Assessment": assessment.name,
