@@ -81,7 +81,7 @@ pg = st.navigation([page for page in [
     st.Page("courses.py", title="Courses", icon="📚"),
     st.Page("timetable.py", title="Schedule", icon="📅"),
     st.Page("attendance.py", title="Attendance", icon="✅"),
-    #st.Page("marks.py", title="Grades", icon="🏆"),
+    st.Page("marks.py", title="Grades", icon="🏆"),
     st.Page("exam_seating.py", title="Exam Seating", icon="📍"),
     st.Page("campusmap.py", title="Campus Map", icon="🗺️"),
     st.Page("admin.py", title="Class Admin", icon="👩‍💼") if st.session_state.logged_in and profile and is_cr(profile) else None,
